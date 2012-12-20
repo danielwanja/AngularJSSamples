@@ -1,0 +1,47 @@
+<html ng-app>
+<head>
+  <title>02-ngrepeat</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+
+  <script>
+  function PeopleController($scope) {
+    $scope.people = [
+       {name: 'Daniel',  language: 'CoffeScript', twitter:'danielwanja'},
+       {name: 'Lee',     language: 'Ruby', twitter: 'lmarlow'},
+       {name: 'Solomon', language: 'Erlang', twitter: 'rubysolo'}
+    ];
+  }
+  </script>
+
+</head>
+<body>
+  <div ng-controller="PeopleController" 
+       style="width:400px; margin-left:auto; margin-right:auto;">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Speaks</th>
+        <th>Twitter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people">
+        <td>{{$index}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.language}}</td>
+        <td>
+          <img ng-src="https://api.twitter.com/1/users/profile_image?screen_name={{person.twitter}}&size=bigger" />
+          <br/>
+          {{person.twitter}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>
