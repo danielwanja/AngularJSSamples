@@ -1,0 +1,9 @@
+Create a new Rails app:
+
+$ rails new blog
+$ rails generate scaffold post title body:text published:boolean
+$ rake db:create
+$ rake db:migrate
+
+Start the server
+$ rails s
