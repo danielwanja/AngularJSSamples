@@ -1,0 +1,44 @@
+<html ng-app="resource-demo">
+<head>
+  <title>06-resource</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+
+  <script>
+  app = angular.module("resource-demo", ['ngResource']);
+
+  function BlogController($scope, $resource) {
+    // Querying using the standar AngularJS $resource service from ngResource
+    $scope.PostResource = $resource('http://localhost:port/posts', {port:":3000"})
+    $scope.posts = $scope.PostResource.query()
+
+  } // BlogController end
+
+  </script>
+
+</head>
+<body>
+  <div ng-controller="BlogController" style="width:400px; margin-left:auto; margin-right:auto;">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="post in posts">
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.body}}</td>
+        <td>{{post.published}}</td>
+      </tr>    
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>
