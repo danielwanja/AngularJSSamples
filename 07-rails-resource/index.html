@@ -21,12 +21,15 @@
   }); 
 
   function BlogController($scope, Post) {
-    $scope.posts = Post.query();
+    $scope.posts = []
+    Post.query().then(function(result){
+        $scope.posts = result
+      })
 
     $scope.deletePost = function(post) {
       post.remove().then(function(result){
-        // reload for now
-        $scope.posts = Post.query();
+        var index = $scope.posts.indexOf(result)
+        if (index>-1) $scope.posts.splice(index,1)
       })
     };
 
@@ -35,8 +38,8 @@
       $scope.post_title = "";
       $scope.post_body = "";
       $scope.post_published = false;
-      newPost.create().then(function(result){
-        $scope.posts.push(newPost)
+      newPost.create().then(function(result){     
+        $scope.posts.push(result) // doesn't work as it's the premise and not the array in this case
       })
     };
 
@@ -47,7 +50,6 @@
 
 </head>
 <body>
-  This example uses the <a href="https://github.com/tpodom/angularjs-rails-resource">angularjs-rails-resource</a> AngularJS extension.
   <div ng-controller="BlogController" style="width:400px; margin-left:auto; margin-right:auto;">
     <table class="table table-striped">
     <thead>
@@ -77,6 +79,9 @@
     
     </tbody>
   </table>
+  <p>
+      This example uses the <a href="https://github.com/tpodom/angularjs-rails-resource">angularjs-rails-resource</a> AngularJS extension.
+  </p>
   </div>
 </body>
 </html>
