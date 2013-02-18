@@ -1,9 +1,9 @@
 <html ng-app>
 <head>
-  <title>02-ngrepeat</title>
+  <title>04-ngrepeat-search</title>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
   <script src="top_movies.js"></script>
 
@@ -18,13 +18,13 @@
 
   <div ng-controller="MovieController">
       <h1>Top {{topMovies.length}} Movies!</h1>
-      <input type="text" ng-model="search" class="search-query" placeholder="Search">
+      <input name="search" type="text" ng-model="search" class="search-query" placeholder="Search">
 
       <ul class="thumbnails">
 
         <li class="span4" ng-repeat="movie in topMovies | filter:search ">
           <div class="thumbnail">
-            <img src="{{movie['im:image'][2].label}}">
+            <img ng-src="{{movie['im:image'][2].label}}">
             <h3>{{$index+1}} {{movie.title.label}}</h3>
             <p>{{movie.category.attributes.label}}</p>
             <p>{{movie.summary.label.substring(0,280)}}...</p>
