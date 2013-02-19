@@ -1,0 +1,74 @@
+<!--
+index.html
+Flicker viewer:
+
+see http://www.flickr.com/services/feeds/docs/photos_faves/
+http://idgettr.com/
+
+http://api.flickr.com/services/feeds/photos_faves.gne?id=95572727@N00&format=json
+http://www.flickr.com/photos/stuckincustoms/
+-->
+
+
+<html ng-app="myApp">
+<head>
+  <title>07-http</title>
+
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <script src="../lib/angular-ui.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+  <script src="../lib/masonry.min.js"></script>
+
+  <style>
+    .item {
+      width: 220px;
+      margin: 10px;
+      float: left;
+    }
+  </style>
+  <script>
+  function FlickerController($scope, $http) {
+             
+    $scope.searchByTag = function(tag) {
+      $http.jsonp('http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f5013bd28015f609f32ab5b0174a2187&tags='+tag+'&per_page=30&format=json&jsoncallback=JSON_CALLBACK')
+        .success(function(data, status, headers, config) {
+          $scope.photos = data.photos.photo
+          // $scope.$evalAsync($scope.mansonry());    // <- Should work...but doesn't!
+           window.setTimeout( $scope.mansonry, 300 )         
+      });
+    }     
+
+    $scope.mansonry = function() {
+      window.wall = new Masonry( document.getElementById('container'), {
+        columnWidth: 120
+      });      
+    }     
+    // Format photo url according to http://www.flickr.com/services/api/misc.urls.html              
+    $scope.photoUrl = function(photo) {
+      return 'http://farm'+photo.farm+'.staticflickr.com/'+photo.server+'/'+photo.id+'_'+photo.secret+'.jpg'
+    }          
+          
+
+  }
+
+  angular.module('myApp', ['ui'])  
+
+  </script>
+
+
+</head>
+<body ng-controller="FlickerController" >
+  <input type="text" ng-model="tag" placeholder="Flicker Search...."
+         ui-keyup="{'enter':'searchByTag(tag)'}">
+
+  <div id="container">
+
+    <div ng-repeat="photo in photos" class="item">
+      <h3>{{$index+1}} {{photo.title.substring(0,14)}}</h3>
+      <img ng-src="{{photoUrl(photo)}}" style="width:250px">
+    </div>           
+
+  </div>
+</body>
+</html>
