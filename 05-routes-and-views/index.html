@@ -1,0 +1,61 @@
+<html ng-app="viewdemo">
+<head>
+  <title>01-ngmodel</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+  <script>
+    function MainController($scope, $rootScope, $location) {
+      $scope.gotoPage = function(page) {
+        $location.path("/page"+page)
+      }
+     } 
+
+    function DetailController($scope, $rootScope, $location, $routeParams) {
+      $scope.params = $routeParams;
+    }
+
+    var app = angular.module('viewdemo', []);
+    app.config(['$routeProvider', function($routeProvider) {
+      $routeProvider.
+          when('/', {templateUrl: 'partials/page1.html',   controller: MainController}).
+          when('/page2', {templateUrl: 'partials/page2.html',   controller: MainController}).
+          when('/details/:itemId', {templateUrl: 'partials/details.html', controller: DetailController}).
+          otherwise({redirectTo: '/'});
+    }]);
+
+
+    app.run(function($rootScope, $location) {
+      $rootScope.$on('$routeChangeSuccess', function() {
+        $rootScope.path = $location.path();
+      });
+
+      $rootScope.currentPage = function (page) {
+        return $rootScope.path == page ? 'active' : ''
+      }
+    });
+
+
+  </script>
+</head>
+<body style="padding:50px">
+
+<ul class="nav nav-tabs">
+  <li ng-class="currentPage('/')">
+    <a href="#/">Home</a>
+  </li>
+  <li ng-class="currentPage('/page2')">
+    <a href="#page2">Page2</a>
+  </li>
+  <li ng-class="currentPage('/details/123')">
+    <a href="#details/123">Detail</a>
+  </li>
+</ul>
+
+
+  CURRENT PAGE: {{path}}
+
+  <div ng-view="main"></div>
+  
+</body>
+</html>
