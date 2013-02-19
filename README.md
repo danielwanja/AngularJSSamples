@@ -1,7 +1,7 @@
-The Tour D'AngularJS
-====================
+AngularJSSamples
+================
 
-This is a collection of code samples I am creating for my "AngularJS - a fun way to build HTML apps - reminds me of Flex" talk.
+This is a collection of code samples I am creating for my "Front End JavaScript WITH AngularJS ..." talk.
 
 In this talk we will start with the basics of AngularsJS, look at the databinding model directives and using templates. We will quickly build an advanced HTML application using controllers and routes. Coming out of this session you will be able to build some pretty cool applications using AngularJS using surprinsingly little code, you will have an understanding of how AngularJS incorporates the basic principles behind the original MVC software design pattern, and you will have seen some more advanced capabilities of my now favorite JavaScript framework.
 

@@ -11,7 +11,8 @@
     $scope.people = [
        {name: 'Daniel',  language: 'CoffeScript', twitter:'danielwanja'},
        {name: 'Lee',     language: 'Ruby', twitter: 'lmarlow'},
-       {name: 'Solomon', language: 'Erlang', twitter: 'rubysolo'}
+       {name: 'Solomon', language: 'Erlang', twitter: 'rubysolo'},
+       {name: 'Cameron', language: 'Ruby', twitter: 'theaboutbox'}
     ];
   }
   </script>
@@ -27,6 +28,7 @@
         <th>Name</th>
         <th>Speaks</th>
         <th>Twitter</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -34,10 +36,9 @@
         <td>{{$index}}</td>
         <td>{{person.name}}</td>
         <td>{{person.language}}</td>
+        <td>{{person.twitter}}</td>
         <td>
           <img ng-src="https://api.twitter.com/1/users/profile_image?screen_name={{person.twitter}}&size=bigger" />
-          <br/>
-          {{person.twitter}}
         </td>
       </tr>
     </tbody>

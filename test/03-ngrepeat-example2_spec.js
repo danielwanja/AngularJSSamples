@@ -5,19 +5,19 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('/04-ngrepeat-search/index.html');
+    browser().navigateTo('/03-ngrepeat/example2.html');
   });
 
 
   it('should not be filtered by default', function() {
     expect(browser().location().url()).toBe("");
-    expect(repeater('.thumbnail').count()).toEqual(10);
+    expect(repeater('div.thumbnail').count()).toEqual(10);
 
   });
 
   it('should filter', function () {
-    input('search').enter("bourne")
-    expect(repeater('.thumbnail').count()).toEqual(1);
+    input('search').enter("boom")
+    expect(repeater('div.thumbnail').count()).toEqual(1);
   });
 
 });

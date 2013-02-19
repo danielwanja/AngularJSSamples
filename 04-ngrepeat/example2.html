@@ -1,6 +1,6 @@
 <html ng-app>
 <head>
-  <title>04-ngrepeat-search</title>
+  <title>04-ngrepeat</title>
 
   <script src="../lib/angular.js" ></script>
   <script src="../lib/angular-resource.js" ></script>
@@ -23,11 +23,11 @@
       <ul class="thumbnails">
 
         <li class="span4" ng-repeat="movie in topMovies | filter:search ">
-          <div class="thumbnail">
+          <div class="thumbnail" style="height:350px;overflow:auto;">
             <img ng-src="{{movie['im:image'][2].label}}">
             <h3>{{$index+1}} {{movie.title.label}}</h3>
             <p>{{movie.category.attributes.label}}</p>
-            <p>{{movie.summary.label.substring(0,280)}}...</p>
+            <p>{{movie.summary.label}}</p>
           </div>
         </li>
 

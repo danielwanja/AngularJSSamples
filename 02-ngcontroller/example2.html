@@ -1,0 +1,40 @@
+<html ng-app>
+<head>
+  <title>02-ngcontroller</title>
+
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+
+  <script>
+  function MyController($scope) {
+    $scope.yourName = "Person1";
+  }
+
+  function OtherController($scope) {
+    $scope.yourName = "Person2";
+  }
+
+  </script>
+
+</head>
+<body>
+
+    <div  ng-controller="MyController">
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+      <h1>Hello {{yourName | uppercase}}!</h1>
+    </div>
+
+    <div  ng-controller="OtherController">
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+      <h1>Hello {{yourName | uppercase}}!</h1>
+    </div>
+
+</body>
+</html>
