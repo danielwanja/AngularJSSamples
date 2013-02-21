@@ -1,0 +1,89 @@
+<html ng-app="myApp" >
+<head>
+  <title>10-directive</title>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <script src="../lib/angular-ui.js" ></script>
+  <script src="../lib/ui-bootstrap-tpls-0.1.0.js" ></script>
+  <!-- <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"> -->
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- jquery & jqplot -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.jqplot.min.js"></script>
+  <script type="text/javascript" src="lib/plugins/jqplot.dateAxisRenderer.min.js"></script>
+  <script type="text/javascript" src="lib/plugins/jqplot.ohlcRenderer.min.js"></script>
+  <script type="text/javascript" src="lib/plugins/jqplot.highlighter.min.js"></script>
+  <script type="text/javascript" src="stocks.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+
+  <link rel="stylesheet" type="text/css" hrf="lib/jquery.jqplot.min.css" />
+
+  <style>
+   .chart {
+     height:250px;
+     width:600px;    
+   }
+   .jqplot-highlighter {
+     background-color: #ccc
+   }
+  </style>
+  <script>
+  
+  //------------------ CONTROLLER ----------------------
+  function StockController($scope) {
+    $scope.tabs = [
+      { ticker: 'AAPL', title: "Apple" ,     content: "Some news about a watch.", active: true, serie:appl.serie},
+      { ticker: 'GOOG', title: "Google" ,    content: "Some info on glasses.", serie:goog.serie},
+      { ticker: 'FB',   title: "Facebook" ,  content: "Some facinating facts about something.", serie:fb.serie}
+    ]
+
+
+    $scope.tabChanged = function(tab) {
+      $scope.chart1Serie = transformSerie(tab.serie)
+      $scope.selectedTab = tab
+    }
+
+    $scope.tabChanged($scope.tabs[0])
+    $scope.chart2Serie = transformSerie(goog.serie);
+  }         
+
+
+  //------------------ ANGULARJS DIRECTIVE ----------------------
+  var app = angular.module('myApp', ['ui.bootstrap']);
+  app.directive('chart', function(){
+      return{
+          restrict: 'E',  // Element name, i.e. <my-directive></my-directive>
+          link: function(scope, element, attrs){
+              var chart = null;
+              scope.$watch(attrs.ngModel, function(v){
+                  if(!chart){
+                      chart = createChart(element, v)
+                      $(element).show();
+                  }else{
+                    chart.empty()
+                    chart = createChart(element, v)  // use replot instead
+                  }
+              });
+          }
+      };
+  });
+
+  </script>
+
+</head>
+<body  ng-controller="StockController">
+  <div class="well" style="height:350px;width:700px" class="span6">
+    <a class="btn"  ng-repeat="tab in tabs" ng-click="tabChanged(tab)">{{tab.ticker}}</a>
+    <h3>{{selectedTab.title}}</h3>
+    <chart ng-model='chart1Serie' class="span6 chart"  />    
+  </div>
+
+  <div class="well" style="height:350px;width:700px"  class="span6">
+    <h3>Google</h3>
+    <chart ng-model='chart2Serie' class="span6 chart"  />    
+  </div>
+
+
+</body>
+</html>
