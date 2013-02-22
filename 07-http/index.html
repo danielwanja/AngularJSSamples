@@ -1,15 +1,3 @@
-<!--
-index.html
-Flicker viewer:
-
-see http://www.flickr.com/services/feeds/docs/photos_faves/
-http://idgettr.com/
-
-http://api.flickr.com/services/feeds/photos_faves.gne?id=95572727@N00&format=json
-http://www.flickr.com/photos/stuckincustoms/
--->
-
-
 <html ng-app="myApp">
 <head>
   <title>07-http</title>
@@ -31,7 +19,7 @@ http://www.flickr.com/photos/stuckincustoms/
   function FlickerController($scope, $http) {
              
     $scope.searchByTag = function(tag) {
-      $http.jsonp('http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f5013bd28015f609f32ab5b0174a2187&tags='+tag+'&per_page=30&format=json&jsoncallback=JSON_CALLBACK')
+      $http.jsonp('http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c785374bbc0ac3f6a4462120d7e42e35&tags='+tag+'&per_page=30&format=json&jsoncallback=JSON_CALLBACK')
         .success(function(data, status, headers, config) {
           $scope.photos = data.photos.photo
           // $scope.$evalAsync($scope.mansonry());    // <- Should work...but doesn't!
@@ -59,9 +47,10 @@ http://www.flickr.com/photos/stuckincustoms/
 
 </head>
 <body ng-controller="FlickerController" >
-  <input type="text" ng-model="tag" placeholder="Flicker Search...."
-         ui-keyup="{'enter':'searchByTag(tag)'}">
-
+  <div class="well">
+    <input type="text" ng-model="tag" placeholder="Flicker Search....">
+    <a class="btn" ng-click="searchByTag(tag)">Go</a>
+  </div>  
   <div id="container">
 
     <div ng-repeat="photo in photos" class="item">
