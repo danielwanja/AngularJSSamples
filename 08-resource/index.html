@@ -1,9 +1,9 @@
 <html ng-app="resource-demo">
 <head>
-  <title>06-resource</title>
+  <title>08-resource</title>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
   <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
 
   <script>
@@ -11,10 +11,9 @@
 
   function BlogController($scope, $resource) {
     // Querying using the standar AngularJS $resource service from ngResource
-    $scope.PostResource = $resource('http://localhost:port/posts', {port:":3000"})
+    $scope.PostResource = $resource('http://localhost\\:3000/posts')
     $scope.posts = $scope.PostResource.query()
-
-  } // BlogController end
+  } 
 
   </script>
 

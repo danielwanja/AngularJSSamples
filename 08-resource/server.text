@@ -1,0 +1,19 @@
+Create a new Rails app:
+
+$ rails new blog
+$ rails generate scaffold post title body:text published:boolean
+$ rake db:create
+$ rake db:migrate
+
+Load some data
+$rails c
+  Post.create(title:"AngularsJS $resource demo", body:"long description")
+  Post.create(title:"Using Ruby on Rails", body:"even longer description")
+  exit
+
+Start the server
+$ rails s
+
+Note to self:
+* server is in cd ~/tmp/blog
+* If using Chrome in dev you could start it with open -a /Applications/Google\ Chrome.app --args -disable-web-security
