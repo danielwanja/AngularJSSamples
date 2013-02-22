@@ -1,0 +1,27 @@
+<html ng-app>
+<head>
+  <title>01-ngmodel</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js" ></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+
+  <script>
+  function MyController($scope) {
+    $scope.partials = ["partial1.html", "partial2.html", "partial3.html", "partial4.html"];
+  }
+  </script>  
+</head>
+<body ng-controller="MyController">
+
+	<div ng-include src="'partial1.html'"></div>  
+	<div ng-include src="'partial2.html'"></div>  
+
+	<select ng-model="template" ng-options="t for t in partials">
+       <option value="">(blank)</option>
+    </select>
+
+	<h2>{{current_partial}}</h2>
+	<div ng-include src="template"></div>  
+
+</body>
+</html>
