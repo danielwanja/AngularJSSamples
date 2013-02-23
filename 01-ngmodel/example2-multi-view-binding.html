@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>02-model-view</title>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap.css">
+</head>
+<body>
+
+  <div ng-app>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+      <h1>Hello {{yourName | uppercase}}!</h1>
+    </div>
+  </div>
+  
+</body>
+</html>
