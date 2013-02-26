@@ -40,7 +40,7 @@
       $scope.post_body = "";
       $scope.post_published = false;
       newPost.create().then(function(result){     
-        $scope.posts.push(result) // doesn't work as it's the premise and not the array in this case
+        $scope.posts.push(result) 
       })
     };
 
