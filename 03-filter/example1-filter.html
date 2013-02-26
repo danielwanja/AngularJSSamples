@@ -1,0 +1,52 @@
+<html ng-app>
+<head>
+  <title>03-directive</title>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap.css">
+
+  <script>
+  function MyController($scope) {
+    $scope.you = {
+      name    : "Captain",
+      age     : 42,
+      birtday : new Date(),
+      salary  : 1234.56789
+    }
+    $scope.people = [
+       {name: 'Daniel',  language: 'CoffeScript'},
+       {name: 'Lee',     language: 'Ruby'},
+       {name: 'Solomon', language: 'Erlang'},
+       {name: 'Cameron', language: 'Ruby'}
+    ];
+  }
+  </script>
+
+</head>
+<body>
+
+  <div ng-controller="MyController">
+    <div>
+      <table class="table table-bordered">
+        <tr><td>lowercase</td>  <td>{{ you.name | lowercase }}  </td></tr>
+        <tr><td>uppercase</td>  <td>{{ you.name | uppercase}}   </td></tr>
+        <tr><td>currency </td>  <td>{{ you.salary | currency }} </td></tr>
+        <tr><td>number   </td>  <td>{{ you.salary | number:3 }} </td></tr>
+        <tr><td>date     </td>  <td>{{ you.birtday | date }}    </td></tr>
+        <tr><td>json     </td>  <td><pre>{{ you | json }}</pre> </td></tr>
+        <tr>
+            <td>filter:"Daniel"</td>             
+            <td>{{  people | filter:"Daniel" }}</td>
+        </tr>
+        <tr>  
+            <td>filter:{language:"Ruby"}</td>
+            <td>{{  people | filter:{language:"Ruby"} }}</td>
+        </tr>
+        <tr><td>limitTo</td>    <td>{{ people | limitTo:2 }}</td></tr>
+      </table>
+
+    </div>
+  </div>
+  
+</body>
+</html>
