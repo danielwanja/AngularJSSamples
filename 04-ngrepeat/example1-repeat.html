@@ -32,7 +32,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="person in people">
+      <tr ng-repeat="person in people | orderBy:'name'">
         <td>{{$index}}</td>
         <td>{{person.name}}</td>
         <td>{{person.language}}</td>
