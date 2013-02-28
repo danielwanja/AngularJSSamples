@@ -7,7 +7,6 @@ In this talk we will start with the basics of AngularsJS, look at the databindin
 
 Here are the examples(click on the link for preview):
 
-<pre>
 ├── 01-ngmodel
 │   ├── [example1-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example1-binding.html)
 │   ├── [example2-multi-view-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example2-multi-view-binding.html)
@@ -36,4 +35,3 @@ Here are the examples(click on the link for preview):
 ├── 10-directive
 │   ├── [example1-ui-bootstrap.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example1-ui-bootstrap.html)
 │   ├── [example2-chart.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example2-chart.html)
-</pre>
