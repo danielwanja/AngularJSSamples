@@ -1,0 +1,45 @@
+<html ng-app="filterdemo">
+<head>
+  <title>03.02-custom filter</title>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-resource.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap.css">
+
+  <script>
+    function MyController($scope) {
+      $scope.you = {
+        name    : "Captain",
+        age     : 42,
+        birtday : new Date(),
+        salary  : 1234.56789
+      }
+    }
+
+    var app = angular.module('filterdemo', []);
+    app.filter('pluck', function () {
+        return function (record, attribute) {
+          if (record) {
+            return record[attribute]
+          } else {
+            return null;
+          };
+        };
+    })    
+
+  </script>
+
+</head>
+<body>
+
+  <div ng-controller="MyController">
+    <div>
+      <table class="table table-bordered">
+        <tr><td>pluck:name</td>  <td>{{ you | pluck:'name' }}  </td></tr>
+        <tr><td>pluck:language</td>  <td>{{ you | pluck:'age'}}   </td></tr>
+      </table>
+
+    </div>
+  </div>
+  
+</body>
+</html>
