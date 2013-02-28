@@ -7,31 +7,31 @@ In this talk we will start with the basics of AngularsJS, look at the databindin
 
 Here are the examples(click on the link for preview):
 
-├── 01-ngmodel
-│   ├── [example1-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example1-binding.html)
-│   ├── [example2-multi-view-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example2-multi-view-binding.html)
-│   └── [example3-two-way-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example3-two-way-binding.html)
-├── 02-ngcontroller
-│   ├── [example1-controller.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example1-controller.html)
-│   └── [example2-multiple-controllers.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example2-multiple-controllers.html)
-├── 03-filter
-│   └── [example1-filter.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example1-filter.html)
-│   └── [example2-custom.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example2-custom.html)
-├── 04-ngrepeat
-│   ├── [example1-repeat.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example1-repeat.html)
-│   ├── [example2-repeat.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example2-repeat.html)
-│   ├── [example3-filter.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example3-filter.html)
-│   ├── [example4-selection.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example4-selection.html)
-├── 05-routes-and-views
-│   ├── [example1-routes.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/05-routes-and-views/example1-routes.html)
-├── 06-partials
-│   ├── [example1-include.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/06-partials/example1-include.html)
-├── 07-http
-│   └── [example1-http.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/07-http/example1-http.html)
-├── 08-resource
-│   ├── example1-resource.html
-├── 09-rails-resource
-│   ├── example1-rails-resource.html
-├── 10-directive
-│   ├── [example1-ui-bootstrap.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example1-ui-bootstrap.html)
-│   ├── [example2-chart.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example2-chart.html)
+* 01-ngmodel
+    * [example1-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example1-binding.html)
+    * [example2-multi-view-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example2-multi-view-binding.html)
+    * [example3-two-way-binding.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/01-ngmodel/example3-two-way-binding.html)
+* 02-ngcontroller
+    * [example1-controller.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example1-controller.html)
+    * [example2-multiple-controllers.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example2-multiple-controllers.html)
+* 03-filter
+    * [example1-filter.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example1-filter.html)
+    * [example2-custom.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/02-ngcontroller/example2-custom.html)
+* 04-ngrepeat
+    * [example1-repeat.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example1-repeat.html)
+    * [example2-repeat.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example2-repeat.html)
+    * [example3-filter.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example3-filter.html)
+    * [example4-selection.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/04-ngrepeat/example4-selection.html)
+* 05-routes-and-views
+    * [example1-routes.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/05-routes-and-views/example1-routes.html)
+* 06-partials
+    * [example1-include.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/06-partials/example1-include.html)
+* 07-http
+    * [example1-http.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/07-http/example1-http.html)
+* 08-resource
+    * example1-resource.html
+* 09-rails-resource
+    * example1-rails-resource.html
+* 10-directive
+    * [example1-ui-bootstrap.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example1-ui-bootstrap.html)
+    * [example2-chart.html](http://htmlpreview.github.com/?https://github.com/danielwanja/AngularJSSamples/blob/master/10-directive/example2-chart.html)
