@@ -38,3 +38,4 @@ Here are the examples(click on the link for preview):
     * [example1-ui-bootstrap.html](http://danielwanja.github.io/AngularJSSamples/10-directive/example1-ui-bootstrap.html)
     * [example2-chart.html](http://danielwanja.github.io/AngularJSSamples/10-directive/example2-chart.html)
 * 11-navigation
+    * [index.html](http://danielwanja.github.io/AngularJSSamples/11-finance-demo/index.html)
