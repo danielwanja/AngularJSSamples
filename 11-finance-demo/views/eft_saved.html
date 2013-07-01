@@ -1,0 +1,13 @@
+<div class="slide">
+eft_saved.html
+<p>
+ Existing: {{model.existingAccounts.length}}
+  <table>
+    <tr ng-repeat="account in model.existingAccounts">
+      <td>{{account}}</td>  <!-- we could add attributes on payment...and have payment.bank_account -->
+      <td>
+        <button class="btn btn-mini btn-primary" type="button" ng-click="selectAccount(account)">select</button>
+      </td>
+    </tr>
+  </table>
+</div>
