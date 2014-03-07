@@ -17,8 +17,8 @@ Here are the examples(click on the link for preview):
     * [example1-controller.html](http://danielwanja.github.io/AngularJSSamples/02-ngcontroller/example1-controller.html)
     * [example2-multiple-controllers.html](http://danielwanja.github.io/AngularJSSamples/02-ngcontroller/example2-multiple-controllers.html)
 * 03-filter
-    * [example1-filter.html](http://danielwanja.github.io/AngularJSSamples/02-ngcontroller/example1-filter.html)
-    * [example2-custom.html](http://danielwanja.github.io/AngularJSSamples/02-ngcontroller/example2-custom.html)
+    * [example1-filter.html](http://danielwanja.github.io/AngularJSSamples/03-filter/example1-filter.html)
+    * [example2-custom.html](http://danielwanja.github.io/AngularJSSamples/03-filter/example2-custom.html)
 * 04-ngrepeat
     * [example1-repeat.html](http://danielwanja.github.io/AngularJSSamples/04-ngrepeat/example1-repeat.html)
     * [example2-repeat.html](http://danielwanja.github.io/AngularJSSamples/04-ngrepeat/example2-repeat.html)
