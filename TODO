@@ -1,0 +1,8 @@
+Port to AngularJS 1.3
+
+NEW
+
+[ ] Add nested controllers
+[ ] Add $broadcast $on $emit example
+[ ] Add provider, factory, service, value, constant example
+[ ] 
