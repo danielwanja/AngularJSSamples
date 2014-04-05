@@ -5,4 +5,5 @@ NEW
 [ ] Add nested controllers
 [ ] Add $broadcast $on $emit example
 [ ] Add provider, factory, service, value, constant example
-[ ] 
+[ ] Add $scope, $rootScope example
+[ ] update or remote test example

@@ -2,14 +2,15 @@
 <head>
   <title>09.01-rails-resource</title>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js" ></script>
+  <script src="../lib/angular.js" ></script>
+  <script src="../lib/angular-animate.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
-  <!-- From https://github.com/tpodom/angularjs-rails-resource -->
-  <script src="resource.js" ></script>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+  <!-- See https://github.com/FineLinePrototyping/angularjs-rails-resource -->
+  <script src="angularjs-rails-resource.min.js" ></script>
 
   <script>
-  app = angular.module("resource-demo", ['rails']);
+  app = angular.module("resource-demo", ['rails', 'ngAnimate']);
   app.factory('Post', ['railsResourceFactory', function (railsResourceFactory) {
       return railsResourceFactory({
         url: 'http://localhost:3000/posts', 
@@ -18,8 +19,6 @@
       });
   }]);
 
-  app.config( function($routeProvider, $httpProvider) {
-  }); 
 
   function BlogController($scope, Post) {
     $scope.posts = []

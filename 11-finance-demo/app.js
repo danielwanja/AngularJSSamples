@@ -41,7 +41,7 @@ function PaymentController($scope, $rootScope, $timeout) {
     $scope.updateSlide();
     $timeout(function() {
         $scope.done()
-    }, 3000);        
+    }, 1500);        
   }   
   $scope.done = function() {
     $scope.model.slide = "done";

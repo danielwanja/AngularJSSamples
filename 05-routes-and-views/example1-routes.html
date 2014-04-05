@@ -2,8 +2,8 @@
 <head>
   <title>05.01-routes</title>
   <script src="../lib/angular.js" ></script>
-  <script src="../lib/angular-resource.js" ></script>
-  <link rel="stylesheet" href="../lib/bootstrap.css">
+  <script src="../lib/angular-route.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
   <script>
     function MainController($scope, $rootScope, $location) {
       $scope.gotoPage = function(page) {
@@ -15,7 +15,7 @@
       $scope.params = $routeParams;
     }
 
-    var app = angular.module('viewdemo', []);
+    var app = angular.module('viewdemo', ['ngRoute']);
     app.config(['$routeProvider', function($routeProvider) {
       $routeProvider.
           when('/', {templateUrl: 'partials/page1.html',   controller: MainController}).
