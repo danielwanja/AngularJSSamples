@@ -4,14 +4,14 @@
 
   <script src="../lib/angular.js" ></script>
   <script src="../lib/angular-resource.js" ></script>
-  <link rel="stylesheet" href="../lib/bootstrap.css">
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
   <script>
   app = angular.module("resource-demo", ['ngResource']);
 
   function BlogController($scope, $resource) {
     // Querying using the standar AngularJS $resource service from ngResource
-    $scope.PostResource = $resource('http://localhost\\:3000/posts')
+    $scope.PostResource = $resource('http://localhost\\:3000/posts.json')
     $scope.posts = $scope.PostResource.query()
   } 
 

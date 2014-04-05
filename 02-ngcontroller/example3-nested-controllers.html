@@ -1,0 +1,65 @@
+<html ng-app>
+<head>
+  <title>02.03-nested-controllers</title>
+
+  <script src="../lib/angular.js" ></script>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+
+  <script>
+
+  function MasterController($scope) {
+    $scope.action = function() {
+      alert("Master is Speaking");
+    }
+  }
+  function Detail1Controller($scope) {
+    $scope.yourName = "Person1";
+    $scope.speak = function() {
+      alert($scope.yourName+" is Speaking");
+    }
+  }
+
+  function Detail2Controller($scope) {
+    $scope.yourName = "Person2";
+    $scope.speak = function() {
+      alert($scope.yourName+" is Speaking");
+    }
+    $scope.action = function() { // Override Master's action method
+      alert($scope.yourName+" took over the world!");
+    }    
+  }
+
+  </script>
+
+</head>
+<body>
+
+    <div ng-controller="MasterController">
+
+      <div  ng-controller="Detail1Controller">
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <h1>Hello {{yourName}}!</h1>
+        <h1>Hello {{yourName | uppercase}}!</h1>
+        <button ng-click="speak()"
+                type="button" class="btn btn-primary">Speak</button>
+        <button ng-click="action()"
+                type="button" class="btn btn-danger">Action</button>
+      </div>
+
+      <div  ng-controller="Detail2Controller">
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <h1>Hello {{yourName}}!</h1>
+        <h1>Hello {{yourName | uppercase}}!</h1>
+        <button ng-click="speak()"
+                type="button" class="btn btn-primary">Speak</button>
+        <button ng-click="action()"
+                type="button" class="btn btn-danger">Action</button>
+      </div>
+
+    </div>
+</body>
+</html>

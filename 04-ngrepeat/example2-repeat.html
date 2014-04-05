@@ -4,7 +4,7 @@
 
   <script src="../lib/angular.js" ></script>
   <script src="../lib/angular-resource.js" ></script>
-  <link rel="stylesheet" href="../lib/bootstrap.css">
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
   <!-- Load data -->
   <script src="top_movies.js"></script>
@@ -20,18 +20,18 @@
 
   <div ng-controller="MovieController">
       <h1>Top {{topMovies.length}} Movies!</h1>
-      <ul class="thumbnails">
 
-        <li class="span4" ng-repeat="movie in topMovies">
-          <div class="thumbnail" style="height:350px;overflow:auto;">
+      <div class="container">
+        <div class="row">
+          <div ng-repeat="movie in topMovies" 
+               class="thumbnail col-xs-3" style="height:350px;overflow:auto;">
             <img ng-src="{{movie['im:image'][2].label}}">
             <h3>{{$index+1}} - {{movie.title.label}}</h3>
             <p>{{movie.category.attributes.label}}</p>
             <p>{{movie.summary.label}}</p>
           </div>
-        </li>
-
-      </ul>
+        </div>
+      </div>
 
     </div>
   </div>
