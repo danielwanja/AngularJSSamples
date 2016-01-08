@@ -1,4 +1,4 @@
-<html ng-app="filterdemo">
+<html>
 <head>
   <title>03.02-custom filter</title>
 
@@ -6,16 +6,17 @@
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
   <script>
-    function MyController($scope) {
+    var app = angular.module('filterdemo',[]);
+
+    app.controller('MyController', ['$scope', function($scope) {
       $scope.you = {
         name    : "Captain",
         age     : 42,
         birtday : new Date(),
         salary  : 1234.56789
       }
-    }
+    }]);
 
-    var app = angular.module('filterdemo', []);
     app.filter('pluck', function () {
         return function (record, attribute) {
           if (record) {
@@ -24,12 +25,12 @@
             return null;
           };
         };
-    })    
+    })
 
   </script>
 
 </head>
-<body>
+<body ng-app="filterdemo">
 
   <div ng-controller="MyController">
     <div>
@@ -40,6 +41,6 @@
 
     </div>
   </div>
-  
+
 </body>
 </html>

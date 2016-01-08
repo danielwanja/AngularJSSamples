@@ -5,22 +5,24 @@
   <script src="../lib/angular-route.js" ></script>
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
   <script>
-    function MainController($scope, $rootScope, $location) {
+
+    var app = angular.module('viewdemo', ['ngRoute']);
+
+    app.controller('MainController', ['$location', function($location) {
       $scope.gotoPage = function(page) {
         $location.path("/page"+page)
       }
-     } 
+    }]);
 
-    function DetailController($scope, $rootScope, $location, $routeParams) {
+    app.controller('DetailController', ['$routeParams', function($routeParams) {
       $scope.params = $routeParams;
-    }
+    }]);
 
-    var app = angular.module('viewdemo', ['ngRoute']);
     app.config(['$routeProvider', function($routeProvider) {
       $routeProvider.
-          when('/', {templateUrl: 'partials/page1.html',   controller: MainController}).
-          when('/page2', {templateUrl: 'partials/page2.html',   controller: MainController}).
-          when('/details/:itemId', {templateUrl: 'partials/details.html', controller: DetailController}).
+          when('/', {templateUrl: 'partials/page1.html',   controller: 'MainController'}).
+          when('/page2', {templateUrl: 'partials/page2.html',   controller: 'MainController'}).
+          when('/details/:itemId', {templateUrl: 'partials/details.html', controller: 'DetailController'}).
           otherwise({redirectTo: '/'});
     }]);
 
@@ -56,6 +58,6 @@
   CURRENT PAGE: {{path}}
 
   <div ng-view class="well"></div>
-  
+
 </body>
 </html>

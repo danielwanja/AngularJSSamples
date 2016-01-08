@@ -1,4 +1,4 @@
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <title>04.03-filter</title>
 
@@ -9,9 +9,11 @@
   <script src="top_movies.js"></script>
 
   <script>
-  function MovieController($scope) {
+  var myApp = angular.module('myApp',[]);
+
+  myApp.controller('MovieController', ['$scope', function($scope) {
     $scope.topMovies = topMovies.feed.entry;
-  }
+  }]);
   </script>
 
 </head>
@@ -23,7 +25,7 @@
 
       <div class="container">
         <div class="row">
-          <div ng-repeat="movie in topMovies | filter:search " 
+          <div ng-repeat="movie in topMovies | filter:search "
                class="thumbnail col-xs-3" style="height:350px;overflow:auto;">
             <img ng-src="{{movie['im:image'][2].label}}">
             <h3>{{$index+1}} - {{movie.title.label}}</h3>
@@ -34,6 +36,6 @@
       </div>
 
   </div>
-  
+
 </body>
 </html>

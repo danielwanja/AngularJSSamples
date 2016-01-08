@@ -1,4 +1,4 @@
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <title>02.03-nested-controllers</title>
 
@@ -7,28 +7,31 @@
 
   <script>
 
-  function MasterController($scope) {
+  var myApp = angular.module('myApp',[]);
+
+  myApp.controller('MasterController', ['$scope', function($scope) {
     $scope.action = function() {
       alert("Master is Speaking");
     }
-  }
-  function Detail1Controller($scope) {
+  }]);
+
+  myApp.controller('Detail1Controller', ['$scope', function($scope) {
     $scope.yourName = "Person1";
     $scope.speak = function() {
       alert($scope.yourName+" is Speaking");
     }
-  }
+  }]);
 
-  function Detail2Controller($scope) {
+  myApp.controller('Detail2Controller', ['$scope', function($scope) {
     $scope.yourName = "Person2";
     $scope.speak = function() {
       alert($scope.yourName+" is Speaking");
     }
     $scope.action = function() { // Override Master's action method
       alert($scope.yourName+" took over the world!");
-    }    
-  }
-
+    }
+  }]);
+  
   </script>
 
 </head>
