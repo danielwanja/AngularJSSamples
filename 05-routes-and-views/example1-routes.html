@@ -8,13 +8,13 @@
 
     var app = angular.module('viewdemo', ['ngRoute']);
 
-    app.controller('MainController', ['$location', function($location) {
+    app.controller('MainController', ['$scope', '$location', function($scope, $location) {
       $scope.gotoPage = function(page) {
         $location.path("/page"+page)
       }
     }]);
 
-    app.controller('DetailController', ['$routeParams', function($routeParams) {
+    app.controller('DetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
       $scope.params = $routeParams;
     }]);
 
@@ -40,7 +40,7 @@
 
   </script>
 </head>
-<body style="padding:50px">
+<body style="padding:50px" ng-controller="MainController">
 
 <ul class="nav nav-tabs">
   <li ng-class="currentPage('/')">

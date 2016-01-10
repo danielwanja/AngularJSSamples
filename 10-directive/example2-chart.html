@@ -3,6 +3,9 @@
   <title>10.02-directive</title>
 
   <script src="../lib/angular.js" ></script>
+
+  <!-- bootstrap -->
+  <script src="lib/ui-bootstrap-tpls-0.10.0.min.js" ></script>
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
   <!-- jquery & jqplot -->
@@ -19,23 +22,21 @@
   <style>
    .chart {
      height:250px;
-     width:600px;    
+     width:600px;
    }
    .jqplot-highlighter {
      background-color: #ccc
    }
   </style>
   <script>
-  
-  //------------------ CONTROLLER ----------------------
-  function StockController($scope) {
+  myApp = angular.module('myApp', ['ui.bootstrap']);
+
+  myApp.controller('StockController', ['$scope', function($scope) {
     $scope.tabs = [
       { ticker: 'AAPL', title: "Apple" ,     content: "Some news about a watch.", active: true, serie:appl.serie},
       { ticker: 'GOOG', title: "Google" ,    content: "Some info on glasses.", serie:goog.serie},
       { ticker: 'FB',   title: "Facebook" ,  content: "Some facinating facts about something.", serie:fb.serie}
     ]
-
-
     $scope.tabChanged = function(tab) {
       $scope.chart1Serie = transformSerie(tab.serie)
       $scope.selectedTab = tab
@@ -43,21 +44,19 @@
 
     $scope.tabChanged($scope.tabs[0])
     $scope.chart2Serie = transformSerie(goog.serie);
-  }         
 
+  }]);
 
   //------------------ ANGULARJS DIRECTIVE ----------------------
-  var app = angular.module('myApp', []);
-  app.directive('chart', function(){
+  myApp.directive('chart', function(){
       return{
           restrict: 'E',  // Element name, i.e. <my-directive></my-directive>
           template: '<div></div>',
           replace: true,
           link: function(scope, element, attrs){
-              var chart = null;              
-              scope.$watch(attrs.ngModel, function(v){              
+              var chart = null;
+              scope.$watch(attrs.ngModel, function(v){
                   if(!chart){
-                      debugger
                       chart = createChart(element, v)
                       $(element).show();
                   }else{
@@ -79,7 +78,7 @@
     <h3>{{selectedTab.title}}</h3>
 
     <!-- Chart 1 -->
-    <chart ng-model='chart1Serie' class="span6 chart"  />    
+    <chart ng-model='chart1Serie' class="span6 chart"  />
 
   </div>
 
@@ -87,7 +86,7 @@
     <h3>Google</h3>
 
     <!-- Chart 2 -->
-    <chart ng-model='chart2Serie' class="span6 chart"  />    
+    <chart ng-model='chart2Serie' class="span6 chart"  />
 
   </div>
 

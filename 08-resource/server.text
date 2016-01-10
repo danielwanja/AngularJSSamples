@@ -18,6 +18,7 @@ Fix some code
 Start the server
 $ rails s
 
-Note to self:
-* server is in cd ~/tmp/blog
+Note:
+
 * If using Chrome in dev you could start it with open -a /Applications/Google\ Chrome.app --args -disable-web-security
+* In the rails/blog application provided in this repo we are using the 'rack-cors' gem to disable CORS for the demo.

@@ -9,12 +9,11 @@
   <script>
   app = angular.module("resource-demo", ['ngResource']);
 
-  function BlogController($scope, $resource) {
+  app.controller('BlogController', ['$scope', '$resource', function($scope, $resource) {
     // Querying using the standar AngularJS $resource service from ngResource
     $scope.PostResource = $resource('http://localhost\\:3000/posts.json')
     $scope.posts = $scope.PostResource.query()
-  } 
-
+  }]);
   </script>
 
 </head>
@@ -35,7 +34,7 @@
         <td>{{post.title}}</td>
         <td>{{post.body}}</td>
         <td>{{post.published}}</td>
-      </tr>    
+      </tr>
     </tbody>
   </table>
   </div>

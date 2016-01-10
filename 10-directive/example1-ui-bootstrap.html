@@ -7,16 +7,15 @@
   <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
 
   <script>
-  
-  //------------------ CONTROLLER ----------------------
-  function StockController($scope) {
+  myApp = angular.module('myApp', ['ui.bootstrap']);
+
+  myApp.controller('StockController', ['$scope', function($scope) {
     $scope.tabs = [
       { ticker: 'AAPL', title: "Apple" ,     content: "Some news about a watch.", active: true},
       { ticker: 'GOOG', title: "Google" ,    content: "Some info on glasses."},
       { ticker: 'FB',   title: "Facebook" ,  content: "Some facinating facts about something."}
     ]
-  }         
-  angular.module('myApp', ['ui.bootstrap']);
+  }]);
   </script>
 
 </head>
@@ -35,6 +34,6 @@
        See <a href="http://angular-ui.github.com/bootstrap">AngularJS UI Bootstrap</a> at <a href="http://angular-ui.github.com/bootstrap/">http://angular-ui.github.com/bootstrap</a>
        <br/>
        Directives: Accordion, Alert, Carousel, Dialog, Dropdown Toggle, Modal, Pagination, Popover, Tabs, Tooltip
-    </p>  
+    </p>
 </body>
 </html>

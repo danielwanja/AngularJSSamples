@@ -14,31 +14,28 @@
     }
   </style>
   <script>
-  function FlickerController($scope, $http) {
-             
+  var myApp = angular.module('myApp',[]);
+
+  myApp.controller('FlickerController', ['$scope', '$http', function($scope, $http) {
     $scope.searchByTag = function(tag) {
-      $http.jsonp('http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c785374bbc0ac3f6a4462120d7e42e35&tags='+tag+'&per_page=30&format=json&jsoncallback=JSON_CALLBACK')
+      $http.jsonp('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c785374bbc0ac3f6a4462120d7e42e35&tags='+tag+'&per_page=30&format=json&jsoncallback=JSON_CALLBACK')
         .success(function(data, status, headers, config) {
           $scope.photos = data.photos.photo
-          // $scope.$evalAsync($scope.mansonry());    // <- Should work...but doesn't!
-           window.setTimeout( $scope.mansonry, 300 )         
+          $scope.$evalAsync($scope.mansonry());
       });
-    }     
+    }
 
     $scope.mansonry = function() {
       window.wall = new Masonry( document.getElementById('container'), {
         columnWidth: 120
-      });      
-    }     
-    // Format photo url according to http://www.flickr.com/services/api/misc.urls.html              
+      });
+    }
+    // Format photo url according to http://www.flickr.com/services/api/misc.urls.html
     $scope.photoUrl = function(photo) {
       return 'http://farm'+photo.farm+'.staticflickr.com/'+photo.server+'/'+photo.id+'_'+photo.secret+'.jpg'
-    }          
-          
+    }
 
-  }
-
-  angular.module('myApp', [])  
+  }]);
 
   </script>
 
@@ -48,13 +45,13 @@
   <div class="well">
     <input type="text" ng-model="tag" placeholder="Flicker Search....">
     <a class="btn" ng-click="searchByTag(tag)">Go</a>
-  </div>  
+  </div>
   <div id="container">
 
     <div ng-repeat="photo in photos" class="item">
       <h3>{{$index+1}} {{photo.title.substring(0,14)}}</h3>
       <img ng-src="{{photoUrl(photo)}}" style="width:250px">
-    </div>           
+    </div>
 
   </div>
 </body>

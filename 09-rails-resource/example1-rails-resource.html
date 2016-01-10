@@ -13,14 +13,13 @@
   app = angular.module("resource-demo", ['rails', 'ngAnimate']);
   app.factory('Post', ['railsResourceFactory', function (railsResourceFactory) {
       return railsResourceFactory({
-        url: 'http://localhost:3000/posts', 
-        name: 'post', 
+        url: 'http://localhost:3000/posts',
+        name: 'post',
         pluralName: 'posts'
       });
   }]);
 
-
-  function BlogController($scope, Post) {
+  app.controller('BlogController', ['$scope', 'Post', function($scope, Post) {
     $scope.posts = []
     Post.query().then(function(result){
         $scope.posts = result
@@ -34,18 +33,15 @@
     };
 
     $scope.addPost = function() {
-      var newPost = new Post({title:$scope.post_title, body:$scope.post_body, published:$scope.post_published});       
+      var newPost = new Post({title:$scope.post_title, body:$scope.post_body, published:$scope.post_published});
       $scope.post_title = "";
       $scope.post_body = "";
       $scope.post_published = false;
-      newPost.create().then(function(result){     
-        $scope.posts.push(result) 
+      newPost.create().then(function(result){
+        $scope.posts.push(result)
       })
     };
-
-  } // BlogController end
-
-  BlogController.$inject = ['$scope','Post'];
+  }]);
   </script>
 
 </head>
@@ -76,7 +72,7 @@
         <td><input type="checkbox" ng-model="post_published"></td>
         <td><a href ng-click='addPost()'>Add</a></td>
       </tr>
-    
+
     </tbody>
   </table>
   <p>
