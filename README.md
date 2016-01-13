@@ -1,9 +1,9 @@
 AngularJSSamples
 ================
 
-Using AngularJS v1.3.0-beta.2
+Using AngularJS v1.5.0-rc.0
 
-This is a collection of code samples I am creating for my "Front End JavaScript WITH AngularJS ..." talk at [Derailed](http://www.meetup.com/DeRailed/events/103389992/).
+This is a collection of code samples I wrote a while back for my "Front End JavaScript WITH AngularJS ..." talk at [Derailed](http://www.meetup.com/DeRailed/events/103389992/).
 
 In this talk we will start with the basics of AngularsJS, look at the databinding model directives and using templates. We will quickly build an advanced HTML application using controllers and routes. Coming out of this session you will be able to build some pretty cool applications using AngularJS with surprinsingly little code. You will have an understanding of how AngularJS incorporates the basic principles behind the original MVC software design pattern, and you will have seen some more advanced capabilities of my now favorite JavaScript framework.
 
